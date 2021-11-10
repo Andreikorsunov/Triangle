@@ -11,12 +11,17 @@ namespace korsunovwebform
         public double a; //первая сторона
         public double b; //вторая сторона
         public double c; //третья сторона
+        public double hb; // высота проведённая к стороне b
         public Triangle(double A, double B, double C) // Конструктор
         {
             a = A; // создаём с заданными длинами сторон согласно заданию
             b = B;
             c = C;
         }
+        public Triangle() // Конструктор, создаст треугольник без указания параметров треугольника
+        {
+        }
+
         public string outputA() // выводим строку a, данный метод возвращает строковое значени
         {
             return Convert.ToString(a);
@@ -69,15 +74,20 @@ namespace korsunovwebform
             get
             {
                 if ((a > b + c) && (b > a + c) && (c > a + b))//сумма 2 сторон должна быть больше третьей
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return true;
+                else return false;
+            }
+        }
+        public string TriangleType // свойство позволяющее установить, существует ли треугольник с заданными сторонами
+        {
+            get
+            {
+                if (a == b && a == c && b == c)
+                    return "равносторонний";
+                else if (a == b || a == c || b == c)
+                    return "равнобедренный";
+                else return "разносторонний";
             }
         }
     }
-    
 }
