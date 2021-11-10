@@ -37,6 +37,7 @@
             this.txtA = new System.Windows.Forms.TextBox();
             this.txtB = new System.Windows.Forms.TextBox();
             this.txtC = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.Run_button.TabIndex = 0;
             this.Run_button.Text = "Запуск";
             this.Run_button.UseVisualStyleBackColor = false;
-            this.Run_button.Click += new System.EventHandler(this.Run_Button_Click);
+            this.Run_button.Click += new System.EventHandler(this.Run_button_Click);
             // 
             // pictureBox1
             // 
@@ -107,11 +108,19 @@
             this.txtC.Size = new System.Drawing.Size(100, 20);
             this.txtC.TabIndex = 5;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(374, 364);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.txtC);
             this.Controls.Add(this.txtB);
             this.Controls.Add(this.txtA);
@@ -136,6 +145,7 @@
         private System.Windows.Forms.TextBox txtA;
         private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.TextBox txtC;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 
