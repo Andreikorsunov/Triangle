@@ -18,6 +18,7 @@ namespace korsunovwebform
         }
         private void Run_button_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             double a, b, c;
             a = Convert.ToDouble(txtA.Text); // считываем значение стороны a
             b = Convert.ToDouble(txtB.Text); // считываем значение стороны b
@@ -38,6 +39,22 @@ namespace korsunovwebform
             if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); } // свойство Triangle.exist
             else listView1.Items[5].SubItems.Add("Не существует");
             listView1.Items[6].SubItems.Add(triangle.TriangleType);
+            if (triangle.TriangleType == "равносторонний")
+            {
+                pictureBox1.Image = Properties.Resources.ravnostor;
+            }
+            else if (triangle.TriangleType == "разносторонний")
+            {
+                pictureBox1.Image = Properties.Resources.raznostor;
+            }
+            else if (triangle.TriangleType == "равнобедренный")
+            {
+                pictureBox1.Image = Properties.Resources.ravnobedr;
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.vopros;
+            }
         }
         private void Run_button_KeyPress(object sender, KeyPressEventArgs e)
         {
