@@ -41,8 +41,10 @@ namespace korsunovwebform
         }
         private void Run_button_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Form2 frm = new Form2();
-            frm.Show();
+            Form1.ActiveForm.Hide(); // При нажатии любой клавиши первая форма скрывается, а вторая появляется
+            Form2 MyForm2 = new Form2();
+            MyForm2.ShowDialog();
+            Close();
         }
     }
 }
