@@ -37,6 +37,12 @@ namespace korsunovwebform
             listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface())); // выводим значение площади
             if (triangle.ExistTriangle) { listView1.Items[5].SubItems.Add("Существует"); } // свойство Triangle.exist
             else listView1.Items[5].SubItems.Add("Не существует");
-        } 
+            listView1.Items[6].SubItems.Add(triangle.TriangleType);
+        }
+        private void Run_button_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.Show();
+        }
     }
 }

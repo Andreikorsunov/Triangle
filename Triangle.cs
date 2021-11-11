@@ -11,7 +11,6 @@ namespace korsunovwebform
         public double a; //первая сторона
         public double b; //вторая сторона
         public double c; //третья сторона
-        public double hb; // высота проведённая к стороне b
         public Triangle(double A, double B, double C) // Конструктор
         {
             a = A; // создаём с заданными длинами сторон согласно заданию
