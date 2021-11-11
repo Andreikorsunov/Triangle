@@ -73,8 +73,8 @@ namespace korsunovwebform
             get
             {
                 if ((a > b + c) && (b > a + c) && (c > a + b))//сумма 2 сторон должна быть больше третьей
-                return true;
-                else return false;
+                return false;
+                else return true;
             }
         }
         public string TriangleType // свойство позволяющее установить, существует ли треугольник с заданными сторонами
