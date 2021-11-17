@@ -18,8 +18,12 @@ namespace korsunovwebform
             b = B;
             c = C;
         }
-        public Triangle() // Конструктор, создаст треугольник без указания параметров треугольника
+        public Triangle(double A, double C, double B, double HB) // Конструктор
         {
+            b = B;
+            hb = HB;
+            a = A;
+            c = C;
         }
 
         public string outputA() // выводим строку a, данный метод возвращает строковое значени
@@ -34,18 +38,50 @@ namespace korsunovwebform
         {
             return Convert.ToString(c);
         }
+        public string outputHB() // выводим сторону h
+        {
+            return Convert.ToString(hb);
+        }
+        public double Ploshad() // площадь
+        {
+            double S = 0;
+            if (ExistTriangle == true)
+            {
+                S = b * hb / 2;
+            }
+            else
+            {
+                S = 0;
+            }
+            return S;
+        }
         public double Perimeter() // сумма всех сторон типа
         {
             double p = 0;
-            p = a + b + c; // вычисление...
-            return p; // возврат
+            if (ExistTriangle == true)
+            {
+                p = a + b + c; // вычисление...
+                return p; // возврат
+            }
+            else
+            {
+                p = 0;
+            }
+            return p;
         }
         public double Surface() // аналогично периметру..
         {
             double s = 0;
             double p = 0;
-            p = (a + b + c) / 2;
-            s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            if (ExistTriangle == true)
+            {
+                p = (a + b + c) / 2;
+                s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
+            }
+            else
+            {
+                s = 0;
+            }
             return s;
         }
         public double GetSetA // свойство позволяющее установить либо изменить значение стороны a
@@ -69,24 +105,38 @@ namespace korsunovwebform
             set
             { c = value; }
         }
+        public double GetSetHB // свойство позволяющее установить либо изменить значение стороны c
+        {
+            get
+            { return hb; }
+            set
+            { hb = value; }
+        }
         public bool ExistTriangle // свойство позволяющее установить, существует ли треугольник с заданными сторонами
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b))//сумма 2 сторон должна быть больше третьей
-                return false;
-                else return true;
+                if ((a < b + c) && (b < a + c) && (c < a + b))//сумма 2 сторон должна быть больше третьей
+                    return true;
+                else return false;
             }
         }
         public string TriangleType // свойство позволяющее установить, существует ли треугольник с заданными сторонами
         {
             get
             {
-                if (a == b && a == c && b == c)
-                    return "равносторонний";
-                else if (a == b || a == c || b == c)
-                    return "равнобедренный";
-                else return "разносторонний";
+                if(ExistTriangle==true)
+                {
+                    if (a == b && a == c && b == c)
+                        return "равносторонний";
+                    else if (a == b || a == c || b == c)
+                        return "равнобедренный";
+                    else return "разносторонний";
+                }
+                else
+                {
+                    return "???";
+                }
             }
         }
     }
